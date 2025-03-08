@@ -11,7 +11,9 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: multiply;
     background-size: cover;
+    background-attachment: fixed;
     background-repeat: no-repeat;
+    user-select: none;
 }
 
 #Header {
@@ -32,22 +34,19 @@ img {
 }
 .Channel {
     background-color: var(--channelBG);
-    width: fit-content;
-    padding: 0.5em 1em;
+    width: 50%;
+    margin: auto;
     display: grid;
-    grid-column: 1;
-    gap: 1em;
+    gap: 20px;
+    grid-template-columns: 5% 30% 20% 20% 8% 5%;
     align-items: center;
     text-align: center;
-    border: 3px solid white;
-    border-radius: 1em;
-    box-shadow: 2px 2px 3px var(--blue1), -2px -2px 3px var(--blue1), -2px 2px 3px var(--blue2),
-        2px -2px 3px var(--blue2);
-    position: relative;
+    border: 2px solid white;
 }
+
 .Button {
     border: 3px solid var(--blue2);
-    /* padding: 0.5em; */
+    padding: 0 0.5em;
     background-color: white;
     color: var(--blue2);
     border-radius: 1em;
@@ -64,7 +63,6 @@ img {
     color: white;
     text-shadow: 1px 1px 3px var(--blue1), -1px -1px 3px var(--blue1), -1px 1px 3px var(--blue2),
         1px -1px 3px var(--blue2);
-    user-select: none;
 }
 #Add:hover {
     cursor: pointer;
@@ -73,9 +71,6 @@ img {
 .Delete {
     text-shadow: 2px 2px 3px red, -2px -2px 3px red;
     padding: 0.5em;
-    position: absolute;
-    right: 0;
-    bottom: 0;
 }
 .Delete:hover {
     cursor: pointer;
@@ -84,13 +79,52 @@ img {
 }
 label {
     color: white;
+    width: fit-content;
     text-shadow: 1px 1px 3px var(--blue1), -1px -1px 3px var(--blue1), -1px 1px 3px var(--blue2),
         1px -1px 3px var(--blue2);
 }
 .Drop {
     padding-left: 5px;
+    position: relative;
 }
 .Drop:hover {
     cursor: pointer;
     text-shadow: 2px 2px 3px red, -2px -2px 3px red;
+}
+.Move {
+    font-size: 2em;
+}
+.Move:hover {
+    cursor: pointer;
+    text-shadow: 2px 2px 3px red, -2px -2px 3px red;
+}
+
+#DropDown {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    text-align: center;
+    border: 2px solid white;
+    visibility: hidden;
+    position: absolute;
+}
+
+.DropChoice {
+    padding: 0.5em;
+    font-size: large;
+    border: 1px solid black;
+    background-color: white;
+    width: 1em;
+    margin: 0;
+}
+.DropChoiceTaken {
+    padding: 0.5em;
+    font-size: large;
+    border: 1px solid black;
+    background-color: gray;
+    width: 1em;
+    margin: 0;
+}
+.DropChoice:hover {
+    border: 1px solid white;
+    background-color: var(--blue1);
 }
