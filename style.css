@@ -14,6 +14,7 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     user-select: none;
+    padding-bottom: 10em;
 }
 
 #Header {
@@ -29,48 +30,80 @@ img {
     width: 150px;
 }
 
+#Features {
+    display: flex;
+    width: 70%;
+    margin: 0.5em auto 1em auto;
+}
+#Features > * {
+    padding: 0.5em 1em;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    border-left: hidden;
+    border-right: hidden;
+    border-radius: 0.5em;
+}
+
 #Channel-Grid {
-    margin: 1em;
+    width: fit-content;
+    margin: auto;
+    padding: 2px;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* background-color: white; */
+    /* gap: 2px; */
 }
 .Channel {
     background-color: var(--channelBG);
-    width: 50%;
     margin: auto;
     display: grid;
-    gap: 20px;
-    grid-template-columns: 5% 30% 20% 20% 8% 5%;
+    grid-template-columns: 0fr 1.2fr 1fr 1fr 1fr 0.5fr 0.5fr;
+    justify-content: center;
     align-items: center;
     text-align: center;
-    border: 2px solid white;
+    border: 1px solid white;
+    width: 100%;
+}
+.Channel > * {
+    margin: 0 0.5em;
 }
 
 .Button {
     border: 3px solid var(--blue2);
-    padding: 0 0.5em;
+    padding: 0.1em 0.5em;
     background-color: white;
     color: var(--blue2);
-    border-radius: 1em;
+    border-radius: 0.5em;
 }
 .Button:hover {
     border: 3px solid red;
-    background-color: var(--channelBG);
+    /* background-color: var(--channelBG); */
+    background-color: transparent;
     color: red;
     cursor: pointer;
 }
-#Add {
+#Add,
+#SortNum,
+#SortTime {
     width: fit-content;
     margin: auto;
     color: white;
     text-shadow: 1px 1px 3px var(--blue1), -1px -1px 3px var(--blue1), -1px 1px 3px var(--blue2),
         1px -1px 3px var(--blue2);
 }
-#Add:hover {
+#Add:hover,
+#SortNum:hover,
+#SortTime:hover,
+.ChanText:hover,
+.Move:hover {
     cursor: pointer;
     text-shadow: 2px 2px 3px red, -2px -2px 3px red;
 }
+
 .Delete {
     text-shadow: 2px 2px 3px red, -2px -2px 3px red;
-    padding: 0.5em;
+    margin-left: -1em;
 }
 .Delete:hover {
     cursor: pointer;
@@ -83,20 +116,12 @@ label {
     text-shadow: 1px 1px 3px var(--blue1), -1px -1px 3px var(--blue1), -1px 1px 3px var(--blue2),
         1px -1px 3px var(--blue2);
 }
-.Drop {
-    padding-left: 5px;
-    position: relative;
-}
-.Drop:hover {
-    cursor: pointer;
-    text-shadow: 2px 2px 3px red, -2px -2px 3px red;
+
+.ChanText {
+    text-align: left;
 }
 .Move {
     font-size: 2em;
-}
-.Move:hover {
-    cursor: pointer;
-    text-shadow: 2px 2px 3px red, -2px -2px 3px red;
 }
 
 #DropDown {
@@ -105,7 +130,7 @@ label {
     text-align: center;
     border: 2px solid white;
     visibility: hidden;
-    position: absolute;
+    position: fixed;
 }
 
 .DropChoice {
@@ -127,4 +152,5 @@ label {
 .DropChoice:hover {
     border: 1px solid white;
     background-color: var(--blue1);
+    cursor: pointer;
 }
