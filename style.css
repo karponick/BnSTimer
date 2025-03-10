@@ -16,7 +16,14 @@ body {
     user-select: none;
     padding-bottom: 10em;
 }
-
+#Sound {
+    color: darkolivegreen;
+    width: fit-content;
+}
+#Sound:hover {
+    text-shadow: 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
+    cursor: pointer;
+}
 #Header {
     /* background-color: white; */
     color: var(--blue1);
@@ -32,17 +39,13 @@ img {
 
 #Features {
     display: flex;
-    width: 70%;
-    margin: 0.5em auto 1em auto;
+    gap: 1em;
+    text-align: center;
+    width: fit-content;
+    margin: 0.5em auto;
 }
 #Features > * {
     padding: 0.5em 1em;
-    border-color: white;
-    border-width: 2px;
-    border-style: solid;
-    border-left: hidden;
-    border-right: hidden;
-    border-radius: 0.5em;
 }
 
 #Channel-Grid {
@@ -51,8 +54,6 @@ img {
     padding: 2px;
     display: grid;
     grid-template-columns: 1fr;
-    /* background-color: white; */
-    /* gap: 2px; */
 }
 .Channel {
     background-color: var(--channelBG);
@@ -78,11 +79,11 @@ img {
 }
 .Button:hover {
     border: 3px solid red;
-    /* background-color: var(--channelBG); */
     background-color: transparent;
     color: red;
     cursor: pointer;
 }
+label,
 #Add,
 #SortNum,
 #SortTime {
@@ -96,25 +97,15 @@ img {
 #SortNum:hover,
 #SortTime:hover,
 .ChanText:hover,
-.Move:hover {
+.Move:hover,
+.Delete {
     cursor: pointer;
     text-shadow: 2px 2px 3px red, -2px -2px 3px red;
 }
 
-.Delete {
-    text-shadow: 2px 2px 3px red, -2px -2px 3px red;
-    margin-left: -1em;
-}
 .Delete:hover {
-    cursor: pointer;
     color: red;
     text-shadow: none;
-}
-label {
-    color: white;
-    width: fit-content;
-    text-shadow: 1px 1px 3px var(--blue1), -1px -1px 3px var(--blue1), -1px 1px 3px var(--blue2),
-        1px -1px 3px var(--blue2);
 }
 
 .ChanText {
@@ -153,4 +144,70 @@ label {
     border: 1px solid white;
     background-color: var(--blue1);
     cursor: pointer;
+}
+
+/* Media Queries */
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+    body {
+        font-size: large;
+    }
+    img {
+        width: 150px;
+    }
+    .Button,
+    .Button:hover {
+        border-width: 3px;
+    }
+    .DropChoice {
+        font-size: large;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        font-size: medium;
+    }
+    img {
+        width: 100px;
+    }
+    .Button,
+    .Button:hover {
+        border-width: 2px;
+    }
+    .DropChoice {
+        font-size: medium;
+    }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+    body {
+        font-size: small;
+    }
+    img {
+        width: 75px;
+    }
+    .Button,
+    .Button:hover {
+        border-width: 1px;
+    }
+    .DropChoice {
+        font-size: small;
+    }
+}
+
+@media all and (max-width: 480px) {
+    body {
+        font-size: x-small;
+    }
+
+    img {
+        width: 50px;
+    }
+    .Button,
+    .Button:hover {
+        border-width: 1px;
+    }
+    .DropChoice {
+        font-size: x-small;
+    }
 }
