@@ -179,7 +179,7 @@ function setTimer(channel) {
             clearInterval(channel.timerInterval);
             if (soundOn) ping();
         }
-    }, 10);
+    }, 1000);
 }
 
 // Sort channels by Time Remaining OR Channel Number
