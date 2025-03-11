@@ -185,7 +185,7 @@ function setTimer(channel) {
             if (soundOn) ping();
             channel.channel.className = "ChannelReady";
         }
-    }, 1);
+    }, 1000);
 }
 
 // Sort channels by Time Remaining OR Channel Number
