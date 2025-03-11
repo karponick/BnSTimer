@@ -1,0 +1,233 @@
+body {
+    font-size: xx-large;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    user-select: none;
+    padding-bottom: 8em;
+    background-color: black;
+}
+
+#Header {
+    color: white;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+img {
+    width: 150px;
+}
+
+#Features {
+    display: flex;
+    gap: 1em;
+    text-align: center;
+    width: fit-content;
+    margin: 0.5em auto;
+}
+#Features > * {
+    padding: 0.5em 1em;
+}
+
+#Options {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#Options > * {
+    color: darkolivegreen;
+    width: fit-content;
+}
+#Options > *:hover {
+    cursor: pointer;
+}
+#Channel-Grid {
+    width: fit-content;
+    margin: auto;
+    padding: 2px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.Channel,
+.ChannelReady,
+.ChannelLightning {
+    background-color: var(--channelBG);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 0fr 1.2fr 1fr 1fr 1fr 0.8fr; /* 0.5fr;*/
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid white;
+    width: fit-content;
+    padding: 0.5em;
+}
+.Channel > *,
+.ChannelReady > *,
+.ChannelLightning > * {
+    margin: 0 0.5em;
+}
+
+.ChannelReady {
+    background-color: rgba(0, 128, 0, 0.5);
+}
+
+.ChannelLightning {
+    background-color: rgba(0, 119, 128, 0.63);
+    border-color: white;
+}
+.Button {
+    border: 3px inset white;
+    background-color: black;
+    color: white;
+    border-radius: 0.2em;
+    padding: 0 0.5em;
+}
+
+.Button:hover {
+    border: 3px outset black;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+label,
+#Add,
+#SortNum,
+#SortTime {
+    width: fit-content;
+    margin: auto;
+    color: white;
+}
+#Add:hover,
+#SortNum:hover,
+#SortTime:hover,
+.ChanText:hover,
+.Move:hover {
+    cursor: pointer;
+    color: skyblue;
+}
+
+.Delete:hover {
+    color: red;
+    text-shadow: none;
+    cursor: pointer;
+}
+
+.ChanText {
+    text-align: left;
+}
+.Move {
+    font-size: 2em;
+}
+
+#DropDown {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    text-align: center;
+    border: 2px solid white;
+    visibility: hidden;
+    position: fixed;
+}
+
+.DropChoice {
+    padding: 0.5em;
+    font-size: large;
+    border: 1px solid black;
+    background-color: white;
+    width: 1em;
+    margin: 0;
+}
+.DropChoiceTaken {
+    padding: 0.5em;
+    font-size: large;
+    border: 1px solid black;
+    background-color: gray;
+    width: 1em;
+    margin: 0;
+}
+.DropChoice:hover {
+    border: 1px solid white;
+    background-color: skyblue;
+    cursor: pointer;
+}
+
+#Footer {
+    user-select: text;
+    color: white;
+    font-size: 1vw;
+    position: fixed;
+    bottom: 0;
+}
+
+#Slider {
+    width: 20%;
+}
+
+/* Media Queries */
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+    body {
+        font-size: large;
+    }
+    img {
+        width: 150px;
+    }
+    .Button,
+    .Button:hover {
+        border-width: 3px;
+    }
+    .DropChoice,
+    .DropChoiceTaken {
+        font-size: large;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        font-size: medium;
+    }
+    img {
+        width: 100px;
+    }
+    .Button,
+    .Button:hover {
+        border-width: 2px;
+    }
+    .DropChoice,
+    .DropChoiceTaken {
+        font-size: medium;
+    }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+    body {
+        font-size: small;
+    }
+    img {
+        width: 75px;
+    }
+    .Button,
+    .Button:hover {
+        border-width: 1px;
+    }
+    .DropChoice,
+    .DropChoiceTaken {
+        font-size: small;
+    }
+}
+
+@media all and (max-width: 480px) {
+    body {
+        font-size: small;
+    }
+
+    img {
+        width: 50px;
+    }
+    .Button,
+    .Button:hover {
+        border-width: 1px;
+    }
+    .DropChoice,
+    .DropChoiceTaken {
+        font-size: x-small;
+    }
+}

@@ -19,19 +19,7 @@ body {
     user-select: none;
     padding-bottom: 8em;
 }
-#Sound,
-#Animation {
-    color: darkolivegreen;
-    width: fit-content;
-}
-#Sound:hover,
-#Animation:hover {
-    text-shadow: var(--shadowOffsetPos) var(--shadowOffsetPos) var(--shadowRadius) black,
-        var(--shadowOffsetNeg) var(--shadowOffsetPos) var(--shadowRadius) black,
-        var(--shadowOffsetPos) var(--shadowOffsetNeg) var(--shadowRadius) black,
-        var(--shadowOffsetNeg) var(--shadowOffsetNeg) var(--shadowRadius) black;
-    cursor: pointer;
-}
+
 #Header {
     /* background-color: white; */
     color: var(--blue1);
@@ -63,6 +51,17 @@ img {
     position: absolute;
     left: 0;
     top: 0;
+}
+#Options > * {
+    color: darkolivegreen;
+    width: fit-content;
+}
+#Options > *:hover {
+    text-shadow: var(--shadowOffsetPos) var(--shadowOffsetPos) var(--shadowRadius) black,
+        var(--shadowOffsetNeg) var(--shadowOffsetPos) var(--shadowRadius) black,
+        var(--shadowOffsetPos) var(--shadowOffsetNeg) var(--shadowRadius) black,
+        var(--shadowOffsetNeg) var(--shadowOffsetNeg) var(--shadowRadius) black;
+    cursor: pointer;
 }
 #Channel-Grid {
     width: fit-content;

@@ -4,6 +4,7 @@ var selectedChannelNum = 0;
 var dropVis = false;
 var soundOn = true;
 var animationOn = true;
+var styleOn = true;
 
 class Channel {
     constructor(id) {
@@ -262,6 +263,21 @@ function toggleAnimation() {
     }
 }
 
+function toggleStyle() {
+    let s = getElement("Style");
+    if (styleOn) {
+        styleOn = false;
+        getElement("stylesheet").setAttribute("href", "style2.css");
+        s.style.color = "darkred";
+        getElement("Animation").setAttribute("hidden", "hidden");
+    } else {
+        styleOn = true;
+        getElement("stylesheet").setAttribute("href", "style.css");
+        s.style.color = "darkolivegreen";
+        getElement("Animation").removeAttribute("hidden");
+    }
+}
+
 // Create Drop Down menu on load and add event listeners for adding channel and drop down selections
 window.onload = function () {
     getElement("Sound").addEventListener("click", () => {
@@ -269,6 +285,9 @@ window.onload = function () {
     });
     getElement("Animation").addEventListener("click", () => {
         toggleAnimation();
+    });
+    getElement("Style").addEventListener("click", () => {
+        toggleStyle();
     });
     let slider = getElement("Slider");
     slider.addEventListener("input", () => {
