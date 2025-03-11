@@ -2,6 +2,9 @@
     --blue1: #1ec6ef;
     --blue2: #1871ed;
     --channelBG: #0000003d;
+    --shadowRadius: 1px;
+    --shadowOffsetPos: 1px;
+    --shadowOffsetNeg: -1px;
 }
 
 body {
@@ -14,14 +17,19 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     user-select: none;
-    padding-bottom: 10em;
+    padding-bottom: 8em;
 }
-#Sound {
+#Sound,
+#Animation {
     color: darkolivegreen;
     width: fit-content;
 }
-#Sound:hover {
-    text-shadow: 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
+#Sound:hover,
+#Animation:hover {
+    text-shadow: var(--shadowOffsetPos) var(--shadowOffsetPos) var(--shadowRadius) black,
+        var(--shadowOffsetNeg) var(--shadowOffsetPos) var(--shadowRadius) black,
+        var(--shadowOffsetPos) var(--shadowOffsetNeg) var(--shadowRadius) black,
+        var(--shadowOffsetNeg) var(--shadowOffsetNeg) var(--shadowRadius) black;
     cursor: pointer;
 }
 #Header {
@@ -31,7 +39,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-shadow: 1px 1px 2px black, -1px -1px 3px white, -1px 1px 3px white, 1px -1px 3px white;
+    text-shadow: var(--shadowOffsetPos) var(--shadowOffsetPos) var(--shadowRadius) black,
+        var(--shadowOffsetNeg) var(--shadowOffsetPos) var(--shadowRadius) white,
+        var(--shadowOffsetPos) var(--shadowOffsetNeg) var(--shadowRadius) white,
+        var(--shadowOffsetNeg) var(--shadowOffsetNeg) var(--shadowRadius) white;
 }
 img {
     width: 150px;
@@ -48,6 +59,11 @@ img {
     padding: 0.5em 1em;
 }
 
+#Options {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 #Channel-Grid {
     width: fit-content;
     margin: auto;
@@ -55,32 +71,73 @@ img {
     display: grid;
     grid-template-columns: 1fr;
 }
-.Channel {
+.Channel,
+.ChannelReady,
+.ChannelLightning {
     background-color: var(--channelBG);
     margin: auto;
     display: grid;
-    grid-template-columns: 0fr 1.2fr 1fr 1fr 1fr 0.5fr 0.5fr;
+    grid-template-columns: 0fr 1.2fr 1fr 1fr 1fr 0.8fr; /* 0.5fr;*/
     justify-content: center;
     align-items: center;
     text-align: center;
     border: 1px solid white;
-    width: 100%;
+    width: fit-content;
+    padding: 0.5em;
 }
-.Channel > * {
+.Channel > *,
+.ChannelReady > *,
+.ChannelLightning > * {
     margin: 0 0.5em;
 }
 
+@keyframes ChannelReady {
+    from {
+        box-shadow: 2px 2px 4px transparent, -2px -2px 4px transparent, -2px 2px 4px transparent,
+            2px -2px 4px transparent;
+    }
+    to {
+        box-shadow: 2px 2px 4px white, -2px -2px 4px white, -2px 2px 4px white, 2px -2px 4px white;
+    }
+}
+.ChannelReady {
+    animation-name: ChannelReady;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    background-color: rgba(0, 128, 0, 0.315);
+}
+
+@keyframes ChannelLightning {
+    from {
+        box-shadow: 2px 2px 4px transparent, -2px -2px 4px transparent, -2px 2px 4px transparent,
+            2px -2px 4px transparent;
+    }
+    to {
+        box-shadow: 2px 2px 4px var(--blue1), -2px -2px 4px var(--blue1), -2px 2px 4px var(--blue1),
+            2px -2px 4px var(--blue1);
+    }
+}
+.ChannelLightning {
+    animation-name: ChannelLightning;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    background-color: rgba(0, 119, 128, 0.63);
+    border-color: var(--blue2);
+}
 .Button {
-    border: 3px solid var(--blue2);
-    padding: 0.1em 0.5em;
+    border: 3px inset var(--blue2);
+    padding: 0 0.5em;
     background-color: white;
     color: var(--blue2);
-    border-radius: 0.5em;
+    border-radius: 0.2em;
 }
+
 .Button:hover {
-    border: 3px solid red;
-    background-color: transparent;
-    color: red;
+    border: 3px outset white;
+    background-color: var(--blue2);
+    color: white;
     cursor: pointer;
 }
 label,
@@ -90,8 +147,10 @@ label,
     width: fit-content;
     margin: auto;
     color: white;
-    text-shadow: 1px 1px 3px var(--blue1), -1px -1px 3px var(--blue1), -1px 1px 3px var(--blue2),
-        1px -1px 3px var(--blue2);
+    text-shadow: var(--shadowOffsetPos) var(--shadowOffsetPos) var(--shadowRadius) var(--blue1),
+        var(--shadowOffsetNeg) var(--shadowOffsetPos) var(--shadowRadius) var(--blue2),
+        var(--shadowOffsetPos) var(--shadowOffsetNeg) var(--shadowRadius) var(--blue1),
+        var(--shadowOffsetNeg) var(--shadowOffsetNeg) var(--shadowRadius) var(--blue2);
 }
 #Add:hover,
 #SortNum:hover,
@@ -100,7 +159,10 @@ label,
 .Move:hover,
 .Delete {
     cursor: pointer;
-    text-shadow: 2px 2px 3px red, -2px -2px 3px red;
+    text-shadow: var(--shadowOffsetPos) var(--shadowOffsetPos) var(--shadowRadius) red,
+        var(--shadowOffsetNeg) var(--shadowOffsetPos) var(--shadowRadius) red,
+        var(--shadowOffsetPos) var(--shadowOffsetNeg) var(--shadowRadius) red,
+        var(--shadowOffsetNeg) var(--shadowOffsetNeg) var(--shadowRadius) red;
 }
 
 .Delete:hover {
@@ -146,8 +208,27 @@ label,
     cursor: pointer;
 }
 
+#Footer {
+    user-select: text;
+    color: white;
+    font-size: 1vw;
+    position: fixed;
+    bottom: 0;
+    text-shadow: var(--shadowOffsetPos) var(--shadowOffsetPos) var(--shadowRadius) black,
+        var(--shadowOffsetNeg) var(--shadowOffsetPos) var(--shadowRadius) black,
+        var(--shadowOffsetPos) var(--shadowOffsetNeg) var(--shadowRadius) black,
+        var(--shadowOffsetNeg) var(--shadowOffsetNeg) var(--shadowRadius) black;
+}
+
+#Slider {
+    width: 20%;
+}
+
 /* Media Queries */
 @media all and (min-width: 1024px) and (max-width: 1280px) {
+    :root {
+        --shadowRadius: 3px;
+    }
     body {
         font-size: large;
     }
@@ -158,12 +239,16 @@ label,
     .Button:hover {
         border-width: 3px;
     }
-    .DropChoice {
+    .DropChoice,
+    .DropChoiceTaken {
         font-size: large;
     }
 }
 
 @media all and (min-width: 768px) and (max-width: 1024px) {
+    :root {
+        --shadowRadius: 2px;
+    }
     body {
         font-size: medium;
     }
@@ -174,12 +259,16 @@ label,
     .Button:hover {
         border-width: 2px;
     }
-    .DropChoice {
+    .DropChoice,
+    .DropChoiceTaken {
         font-size: medium;
     }
 }
 
 @media all and (min-width: 480px) and (max-width: 768px) {
+    :root {
+        --shadowRadius: 1px;
+    }
     body {
         font-size: small;
     }
@@ -190,14 +279,18 @@ label,
     .Button:hover {
         border-width: 1px;
     }
-    .DropChoice {
+    .DropChoice,
+    .DropChoiceTaken {
         font-size: small;
     }
 }
 
 @media all and (max-width: 480px) {
+    :root {
+        --shadowRadius: 1px;
+    }
     body {
-        font-size: x-small;
+        font-size: small;
     }
 
     img {
@@ -207,7 +300,8 @@ label,
     .Button:hover {
         border-width: 1px;
     }
-    .DropChoice {
+    .DropChoice,
+    .DropChoiceTaken {
         font-size: x-small;
     }
 }

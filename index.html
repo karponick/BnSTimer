@@ -6,11 +6,18 @@
         <meta charset="utf-8">
         <link rel="icon" type="image/x-icon" href="/favicon.png">
         <link rel="stylesheet" href="style.css">
-        <script type="text/javascript" charset="utf-8" src="index.js"></script>
+        <script type="module" charset="utf-8" src="index.js"></script>
     </head>
 
     <body>
-        <div id="Sound">🕪 Timer Pings On</div>
+        <div id="Options">
+            <div id="Sound">🕪 Timer Sound On</div>
+            <div id="Animation">⏵Animations On</div>
+            <div class="slidecontainer" hidden>
+                <input type="range" min="1" max="10" value="5" id="Slider">
+            </div>
+        </div>
+
         <div id="Header">
             <img src="favicon.png" alt="BNS Logo">
             Field Boss Timer
@@ -21,6 +28,10 @@
             <div id="SortTime">Sort by Time Remaining</div>
         </div>
         <div id="Channel-Grid">
+        </div>
+        <div id="Footer">
+            <div style="left: 0;">&copy;2025 Sage</div>
+            <div style="right: 0;">Contact on Discord @lunarsplendor</div>
         </div>
     </body>
 
